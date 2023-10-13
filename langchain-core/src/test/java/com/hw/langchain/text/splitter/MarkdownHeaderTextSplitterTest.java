@@ -41,19 +41,18 @@ class MarkdownHeaderTextSplitterTest {
      */
     @Test
     void testMdHeaderTextSplitter1() {
-        String markdownDocument = "" +
-                "# Foo\n" +
-                "\n" +
-                "                    ## Bar\n" +
-                "\n" +
-                "                Hi this is Jim\n" +
-                "\n" +
-                "                Hi this is Joe\n" +
-                "\n" +
-                "                 ## Baz\n" +
-                "\n" +
-                "                 Hi this is Molly" +
-                "";
+        String markdownDocument = "# Foo\n"
+                + "\n"
+                + "## Bar\n"
+                + "\n"
+                + "Hi this is Jim\n"
+                + "\n"
+                + "Hi this is Joe\n"
+                + "\n"
+                + "## Baz\n"
+                + "\n"
+                + "Hi this is Molly";
+
 
         List<Pair<String, String>> headersToSplitOn = ListUtil.of(
                 Pair.of("#", "Header 1"),
@@ -81,23 +80,14 @@ class MarkdownHeaderTextSplitterTest {
      */
     @Test
     void testMdHeaderTextSplitter2() {
-        String markdownDocument = "" +
-                "# Foo\n" +
-                "\n" +
-                "                    ## Bar\n" +
-                "\n" +
-                "                Hi this is Jim\n" +
-                "\n" +
-                "                Hi this is Joe\n" +
-                "\n" +
-                "                 ### Boo\n" +
-                "\n" +
-                "                 Hi this is Lance\n" +
-                "\n" +
-                "                 ## Baz\n" +
-                "\n" +
-                "                 Hi this is Molly" +
-                "";
+        String markdownDocument = "# Foo\n\n"
+                + "## Bar\n\n"
+                + "Hi this is Jim\n\n"
+                + "Hi this is Joe\n\n"
+                + "### Boo\n\n"
+                + "Hi this is Lance\n\n"
+                + "## Baz\n\n"
+                + "Hi this is Molly";
 
         List<Pair<String, String>> headersToSplitOn = ListUtil.of(
                 Pair.of("#", "Header 1"),
@@ -132,27 +122,16 @@ class MarkdownHeaderTextSplitterTest {
      */
     @Test
     void testMdHeaderTextSplitter3() {
-        String markdownDocument = "" +
-                "# Foo\n" +
-                "\n" +
-                "                    ## Bar\n" +
-                "\n" +
-                "                Hi this is Jim\n" +
-                "\n" +
-                "                Hi this is Joe\n" +
-                "\n" +
-                "                 ### Boo\n" +
-                "\n" +
-                "                 Hi this is Lance\n" +
-                "\n" +
-                "                 #### Bim\n" +
-                "\n" +
-                "                 Hi this is John\n" +
-                "\n" +
-                "                 ## Baz\n" +
-                "\n" +
-                "                 Hi this is Molly" +
-                "";
+        String markdownDocument = "# Foo\n\n"
+                + "## Bar\n\n"
+                + "Hi this is Jim\n\n"
+                + "Hi this is Joe\n\n"
+                + "### Boo\n\n"
+                + "Hi this is Lance\n\n"
+                + "#### Bim\n\n"
+                + "Hi this is John\n\n"
+                + "## Baz\n\n"
+                + "Hi this is Molly";
 
         List<Pair<String, String>> headersToSplitOn = ListUtil.of(
                 Pair.of("#", "Header 1"),

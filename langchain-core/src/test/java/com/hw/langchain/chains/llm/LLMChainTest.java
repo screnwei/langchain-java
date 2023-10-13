@@ -21,6 +21,7 @@ package com.hw.langchain.chains.llm;
 import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.map.MapBuilder;
 import cn.hutool.core.map.MapUtil;
+import com.google.common.collect.ImmutableList;
 import com.hw.langchain.base.language.BaseLanguageModel;
 import com.hw.langchain.chains.base.Chain;
 import com.hw.langchain.chat.models.openai.ChatOpenAI;
@@ -83,7 +84,7 @@ class LLMChainTest {
 
     @Test
     void testAsyncRun() {
-        PromptTemplate prompt = new PromptTemplate(List.of("product"),
+        PromptTemplate prompt = new PromptTemplate(ImmutableList.of("product"),
                 "What is a good name for a company that makes {product}?");
 
         Chain chain = new LLMChain(llm, prompt);

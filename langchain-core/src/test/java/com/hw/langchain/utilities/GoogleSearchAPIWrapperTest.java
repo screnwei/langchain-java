@@ -18,6 +18,8 @@
 
 package com.hw.langchain.utilities;
 
+import com.google.common.collect.ImmutableMap;
+import lombok.var;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -45,10 +47,11 @@ class GoogleSearchAPIWrapperTest {
         List<Map<String, String>> results = searchWrapper.results(query, 10);
         assertThat(results).isNotEmpty().hasSize(10);
 
-        assertThat(results.get(0)).isEqualTo(Map.of(
+        var expectedMap = ImmutableMap.of(
                 "title", "Full-Year 2022 National Auto Sales By Brand",
                 "link", "https://www.carpro.com/blog/full-year-2022-national-auto-sales-by-brand",
-                "snippet",
-                "Jan 12, 2023 ... Full-Year 2022 National Auto Sales By Brand ; 1. Toyota, 1,849,751 ; 2. Ford, 1,767,439 ; 3. Chevrolet, 1,502,389 ; 4. Honda, 881,201 ..."));
+                "snippet", "Jan 12, 2023 ... Full-Year 2022 National Auto Sales By Brand ; 1. Toyota, 1,849,751 ; 2. Ford, 1,767,439 ; 3. Chevrolet, 1,502,389 ; 4. Honda, 881,201 ...");
+
+        assertThat(results.get(0)).isEqualTo(expectedMap);
     }
 }

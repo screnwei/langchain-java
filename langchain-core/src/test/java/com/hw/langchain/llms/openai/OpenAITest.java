@@ -18,11 +18,14 @@
 
 package com.hw.langchain.llms.openai;
 
+import com.hw.langchain.base.language.BaseLanguageModel;
+import lombok.var;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import reactor.core.publisher.Flux;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -60,6 +63,6 @@ class OpenAITest {
         Flux<String> result = llm.asyncPredict("Say this is a test");
 
         List<String> resultList = result.collectList().block();
-        assertThat(resultList).isEqualTo(List.of("\n", "\n", "This", " is", " indeed", " a", " test", ".", ""));
+        assertThat(resultList).isEqualTo(Arrays.asList("\n", "\n", "This", " is", " indeed", " a", " test", ".", ""));
     }
 }

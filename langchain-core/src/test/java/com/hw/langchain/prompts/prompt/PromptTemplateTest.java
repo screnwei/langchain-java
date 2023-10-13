@@ -29,26 +29,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * <a href="https://python.langchain.com/en/latest/modules/prompts/prompt_templates/getting_started.html">Prompt Templates Started </a>
- *
+ * <p>
  * PromptTemplateTest
+ *
  * @author HamaWhite
  */
 class PromptTemplateTest {
 
     @Test
     void testPromptTemplate() {
-        String template = "" +
-                "I want you to act as a naming consultant for new companies.\n" +
-                "                What is a good name for a company that makes {product}?" +
-                "";
+        String template = "I want you to act as a naming consultant for new companies.\n" +
+                "                What is a good name for a company that makes {product}?";
 
         PromptTemplate prompt = new PromptTemplate(ListUtil.of("product"), template);
         String actual = prompt.format(MapUtil.of("product", "colorful socks"));
 
-        String expected = "" +
-                " I want you to act as a naming consultant for new companies.\n" +
-                "                What is a good name for a company that makes colorful socks?" +
-                "";
+        String expected = "I want you to act as a naming consultant for new companies.\n" +
+                "                What is a good name for a company that makes colorful socks?";
         assertEquals(expected, actual);
     }
 
